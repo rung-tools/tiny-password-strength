@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint ./src/index.js",
     "build": "babel src -d lib",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "keywords": [
     "password",
