@@ -7,8 +7,9 @@
   "author": "Marcelo Camargo <marcelocamargo@linuxmail.org>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint ./lib",
-    "build": "babel src -d lib"
+    "lint": "eslint ./src/index.js",
+    "build": "babel src -d lib",
+    "test": "nyc ava"
   },
   "keywords": [
     "password",
@@ -20,11 +21,13 @@
     "ramda": "0.25.0"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
     "babel-cli": "6.26.0",
     "babel-plugin-function-composition": "0.1.1",
     "babel-preset-es2015": "6.24.1",
     "eslint": "4.11.0",
-    "eslint-plugin-ramda": "2.2.0"
+    "eslint-plugin-ramda": "2.2.0",
+    "nyc": "^11.3.0"
   },
   "engines": {
     "node": ">=4.0.0"

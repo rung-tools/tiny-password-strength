@@ -15,7 +15,7 @@ import {
     toLower,
     trim,
     zipObj
-} from 'ramda';
+} from 'ramda'
 
 const constraints = [
     complement(eqBy(trim, '')),
@@ -23,10 +23,9 @@ const constraints = [
     both(test(/\w+/), test(/\d+/)),
     converge(complement(equals), [toLower, identity]),
     test(/[^a-z]+/)
-];
+]
 
-export const strength
-    = juxt(constraints)
+export default juxt(constraints)
     & reduce((count, pass) => count + Number(pass), 0)
     & nth(__, [
         ['no-password', ''],
@@ -36,4 +35,4 @@ export const strength
         ['good', 'Nice one!'],
         ['strong', 'Awesome password!']
     ])
-    & zipObj(['meterClass', 'meterMessage']);
+    & zipObj(['meterClass', 'meterMessage'])
